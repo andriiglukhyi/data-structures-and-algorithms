@@ -17,6 +17,6 @@ def insertShiftarray(array,value):
 
 
 if __name__ == '__main__':
-    insertShiftarray()
+    insertShiftarray([1,2,3], 4)
 
      
