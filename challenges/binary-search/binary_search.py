@@ -1,21 +1,28 @@
-def binnarySearch(arr, val):
-    counter = 0
-    if len(arr) = 0:
-        print('array c\'ant be empty')
+def sub_binnarySearch(arr, val, low, high):
+    if low>high:
+        False
+    else:
+        mid = (low+high)//2
+        if val == arr[mid]:
+            print(mid)
+            return mid
+        elif val<arr[mid]:
+            return sub_binnarySearch(arr,val,low, mid-1)
+        else:
+            return sub_binnarySearch(arr,val,mid+1, high)
+def binnarySearch(arr,val):
+
+    if len(arr) == 0:
         return -1
     elif type(val) != int:
-        print('value should be a number')
+        return -1
+    elif val not in arr:
         return -1
     else:
-        len(arr) > 0 and type(val) == int:
-            for item in arr:
-                counter +=1
-                if item == val:
-                    print(counter)
-                    return counter
-                else:
-                    print('inncorrect')
-                    return -1
-
+        low = 0
+        high = len(arr)
+        sub_binnarySearch(arr, val, low, high)
+    
+    
 if __name__ == '__main__':
-    binnarySearch([1,2,3,4], 4)
+    binnarySearch(range(300,400), 350)
