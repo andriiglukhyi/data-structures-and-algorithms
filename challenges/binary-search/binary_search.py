@@ -1,4 +1,4 @@
-def sub_binnarySearch(arr, val, low, high):
+def sub_binary_search(arr, val, low, high):
     if low>high:
         False
     else:
@@ -7,10 +7,10 @@ def sub_binnarySearch(arr, val, low, high):
             print(mid)
             return mid
         elif val<arr[mid]:
-            return sub_binnarySearch(arr,val,low, mid-1)
+            return sub_binary_search(arr,val,low, mid-1)
         else:
-            return sub_binnarySearch(arr,val,mid+1, high)
-def binnarySearch(arr,val):
+            return sub_binary_search(arr,val,mid+1, high)
+def binary_search(arr,val):
 
     if len(arr) == 0:
         return -1
@@ -21,8 +21,8 @@ def binnarySearch(arr,val):
     else:
         low = 0
         high = len(arr)
-        sub_binnarySearch(arr, val, low, high)
+        sub_binary_search(arr, val, low, high)
     
     
 if __name__ == '__main__':
-    binnarySearch(range(300,400), 350)
+    binary_search(range(300,400), 350)
