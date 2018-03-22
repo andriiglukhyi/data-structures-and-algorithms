@@ -1,4 +1,4 @@
-import shift-array
+import shift_array as s
 
 
 def test_shift_array_if_lenisodd():
@@ -7,7 +7,7 @@ def test_shift_array_if_lenisodd():
     """
     array = [0,0,0]
     value = 1
-    shift-array()
+    shift_array(array,value)
     assert array[2] == 1
 
 def test_shift_array_if_leniseven():
@@ -16,7 +16,7 @@ def test_shift_array_if_leniseven():
     """
     array = [0,0,0,0]
     value = 1
-    shift-array()
+    shift_array(array,value)
     assert array[2] == 1
 
 def test_shift_array_if_itisempty():
@@ -25,6 +25,7 @@ def test_shift_array_if_itisempty():
     """
     array = []
     value = 1
+    shift_array
     assert array[0] == 1
 
 

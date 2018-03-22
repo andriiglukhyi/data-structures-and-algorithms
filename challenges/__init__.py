@@ -1,3 +1,4 @@
 __all__ = [
-    "shift-array",
+    "shift_array",
+    "binary_search"
 ]
