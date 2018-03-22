@@ -4,9 +4,9 @@ Write a function called BinarySearch which takes in 2 parameters: a sorted array
 
 ## Challenge
 
-Function should be independent of the num elements in arrai
+Function should be independent of the num elements in array
 
 
 ## Solution
 
-data-structures-and-algorithms/assets/shift-array.jpg
+data-structures-and-algorithms/assets/binary_search.jpg
