@@ -25,4 +25,4 @@ def binary_search(arr,val):
     
     
 if __name__ == '__main__':
-    binary_search(range(300,400), 350)
+    binary_search(range(0xFFFFFFFF), 100000)
