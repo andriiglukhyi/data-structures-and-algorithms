@@ -16,8 +16,6 @@ def binary_search(arr,val):
         return -1
     elif type(val) != int:
         return -1
-    elif val not in arr:
-        return -1
     else:
         low = 0
         high = len(arr)
