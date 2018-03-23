@@ -1,4 +1,5 @@
-def insertShiftarray(array,value):
+def insert_shift_array(array,value):
+    """"""
     if len(array) > 0 and len(array)%2 == 0: 
         midle = len(array)//2
     elif len(array)>0 and len(array)%2 == 1:
@@ -17,6 +18,6 @@ def insertShiftarray(array,value):
 
 
 if __name__ == '__main__':
-    insertShiftarray([1,2,3], 4)
+    insert_shift_array([1,2,3], 4)
 
      
