@@ -1,4 +1,5 @@
 def largest_product(arr):
+    """function will take array and return number"""
     largest = 0
     if len(arr) == 0:
         print(largest)
