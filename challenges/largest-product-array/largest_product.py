@@ -1,38 +1,38 @@
 def largest_product(arr):
     largest = 0
-    mainlen = len(arr)
     if len(arr) == 0:
         print(largest)
         return largest
     elif len(arr) == 1:
-        largest = arr[0]*arr[1] 
+        largest = node_inside(arr[0], largest)
         print(largest)
-        return largest
     else:
-        for node in range(mainlen-1):
-            print(arr[node])
-            # if len(arr[node]) == 2 and len(arr[node+1]) ==2:
-            #     if arr[node][0]*arr[node][1] > largest:
-            #         largest = arr[node][0]*arr[node][1]
-            #     elif arr[node][0]*arr[node+1][0] > largest:
-            #         largest = arr[node][0]*arr[node+1][0]
-            #     else:
-            #         largest = arr[node][1]*arr[node+1][1]
-            else:
-                print("not enougth items")
-                return -1
-        if arr[len(arr)][0]*arr[len(arr)][1]:
-            largest = arr[len(arr)][0]*arr[len(arr)][1]
+        for item in range(len(arr)-1):
+            largest = node_inside(arr[item],largest)
+            largest = node_to_node(arr[item], arr[item+1], largest)
+    
+        largest = node_inside(arr[len(arr)-1], largest)
+    print(largest)
+    return largest
+
+
+
 def node_inside(sub_arr, largest):
-    for item in range(len(arr)-1):
-        if syb_arr[item]*sub_arr[item+1] > largest:
-            largest = syb_arr[item]*sub_arr[item+1]
-        return largest 
-def node_to_node(len, node1,node2,largest):
-    for item in range(len):
-        if len(node1) == len(node2):
-            for item in range(len(node1)):
-                if node1[item]*node2[item]
+    """item in one node"""
+
+    for item in range(len(sub_arr)-1):
+        if sub_arr[item]*sub_arr[item+1] > largest:
+            largest = sub_arr[item]*sub_arr[item+1]
+    return largest
+
+def node_to_node(node1,node2,largest):
+    """campare two items"""
+    # for item in range(length):
+    if len(node1) == len(node2):
+        for a in range(len(node1)):
+            if node1[a]*node2[a]>largest:
+                largest = node1[a]*node2[a]>largest
+    return largest        
 
 
 
@@ -40,4 +40,4 @@ def node_to_node(len, node1,node2,largest):
 
 
 if __name__ == '__main__':
-    largest_product([ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ] ])
+    largest_product([ [ 1, 2 ,3,4,5,5,6,6,7,7,8,8,8,8], [ 3, 4,4,8,3,6,7,2,4,5,6,7,8,9 ], [ 5, 6, 3,4,5,6,7,8,2,3,4,5,6,7 ], [ 7, 8, 4, 5,3,4,5,6,7,2,3,4,5,6 ] ])
