@@ -20,7 +20,7 @@ def test_check_if_syb_hase_only_1_el():
     arr = [3]
     val = 0
     assert largest_product.node_inside(arr,val) == 3
-    
+
 def test_check_():
     """test for one element"""
     arr = [[2]]
