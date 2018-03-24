@@ -20,15 +20,17 @@ def largest_product(arr):
 
 def node_inside(sub_arr, largest):
     """item in one node"""
-
-    for item in range(len(sub_arr)-1):
-        if sub_arr[item]*sub_arr[item+1] > largest:
-            largest = sub_arr[item]*sub_arr[item+1]
-    return largest
+    if len(sub_arr) == 1:
+        largest = sub_arr[0]
+        return largest
+    else:
+        for item in range(len(sub_arr)-1):
+            if sub_arr[item]*sub_arr[item+1] > largest:
+                largest = sub_arr[item]*sub_arr[item+1]
+        return largest
 
 def node_to_node(node1,node2,largest):
     """campare two items"""
-    # for item in range(length):
     if len(node1) == len(node2):
         for a in range(len(node1)):
             if node1[a]*node2[a]>largest:

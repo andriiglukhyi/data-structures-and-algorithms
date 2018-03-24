@@ -14,4 +14,14 @@ def test_check_if_each_node_hase_2_elements():
     """"check is nested array hase not rigth num of elements"""
     arr = [[1,1,3,4],[3,1,4,10]]
     assert largest_product.node_to_node(arr[0], arr[1], 0) == True
+
+def test_check_if_syb_hase_only_1_el():
+    """test for one value"""
+    arr = [3]
+    val = 0
+    assert largest_product.node_inside(arr,val) == 3
     
+def test_check_():
+    """test for one element"""
+    arr = [[2]]
+    assert largest_product.largest_product(arr) == 2
