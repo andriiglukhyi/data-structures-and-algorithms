@@ -70,8 +70,7 @@ class LinkedList:
         """insert new node after correct"""
         current = self.head
         while current != value:
-            current._next = Node(newval, current._next)
-            
+            current._next = Node(newval, current._next)     
 
         
 
