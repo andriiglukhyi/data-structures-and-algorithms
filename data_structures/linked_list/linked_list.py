@@ -24,7 +24,7 @@ class LinkedList:
         for _ in range(self._len+1):
             lis.append(current)
             current = current._next
-        return lis
+        return str(lis)
 
     
     def insert(self, val):
@@ -52,8 +52,27 @@ class LinkedList:
                     return True
                 return False
     
+    def append(self, value):
+        """append value at the end of the list"""
+        current = self.head
+        while current._next != None:
+                current._next = Node(value)      
 
-            
+    
+    def insert_before(self, value, newval):
+        """insert new node before correct"""
+        current = self.head
+        while current._next != value:
+            current._next = Node(newval, current._next)
+
+    
+    def insert_after(self, value, newval):
+        """insert new node after correct"""
+        current = self.head
+        while current != value:
+            current._next = Node(newval, current._next)
+
+        
 
 
                 
