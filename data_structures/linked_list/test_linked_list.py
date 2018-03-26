@@ -86,6 +86,7 @@ def test_insertAfter_(small_ll):
     small_ll.insert_after(2,4)
     small_ll.insert_after(4,6)
     assert str(small_ll.__str__[-1]._next.val) == None
+    
 
     
 

@@ -71,6 +71,7 @@ class LinkedList:
         current = self.head
         while current != value:
             current._next = Node(newval, current._next)
+            
 
         
 
