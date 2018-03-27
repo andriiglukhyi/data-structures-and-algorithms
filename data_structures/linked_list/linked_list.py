@@ -19,12 +19,12 @@ class LinkedList:
     
     def __str__(self):
         """return all items from the LL"""
-        lis = ''
+        lis = []
         current = self.head
         for _ in range(self._len+1):
-            lis += str(current)
+            lis.append(current)
             current = current._next
-        return lis
+        return str(lis)
 
     
     def insert(self, val):
@@ -56,7 +56,7 @@ class LinkedList:
         """append value at the end of the list"""
         current = self.head
         if current:
-            while current._next != None:
+            while current._next:
                 current = current._next
             current._next = Node(value)
         else:
@@ -68,7 +68,7 @@ class LinkedList:
         """insert new node before correct"""
         current = self.head
         if current:
-            while current._next != value:
+            while current._next.val != value:
                 current = current._next
             current._next = Node(newval, current._next)
         else:
@@ -81,10 +81,25 @@ class LinkedList:
         """insert new node after correct"""
         current = self.head
         if current:
-            while current != value:
+            while current.val != value:
                 current = current._next
             current._next = Node(newval, current._next)
+            return True
         else:
             self.head = Node(value)
-        return self.__str__  
+            return True
+        return False  
+    
+    def ll_kth_from_end(self, value):
+        current = self.head
+        if len(self) - 1 < value  or value < 0:
+            print('out of range')
+            return False
+        else:
+            for item in range(value - 1):
+                current = current._next
+        return current
+
+
+
 
