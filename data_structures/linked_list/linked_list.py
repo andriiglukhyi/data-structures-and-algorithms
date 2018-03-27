@@ -19,12 +19,12 @@ class LinkedList:
     
     def __str__(self):
         """return all items from the LL"""
-        lis = []
+        lis = ''
         current = self.head
         for _ in range(self._len+1):
-            lis.append(current)
+            lis += str(current)
             current = current._next
-        return str(lis)
+        return lis
 
     
     def insert(self, val):
@@ -55,24 +55,36 @@ class LinkedList:
     def append(self, value):
         """append value at the end of the list"""
         current = self.head
-        while current._next:
-            current = current._next
-        current._next = Node(value)      
+        if current:
+            while current._next != None:
+                current = current._next
+            current._next = Node(value)
+        else:
+            self.head = Node(value)
+        return self.__str__
 
     
     def insert_before(self, value, newval):
         """insert new node before correct"""
         current = self.head
-        while current._next != value:
-            current = current._next
-        current._next = Node(newval, current._next)
+        if current:
+            while current._next != value:
+                current = current._next
+            current._next = Node(newval, current._next)
+        else:
+            self.head = Node(value)
+        return self.__str__
+            
 
     
     def insert_after(self, value, newval):
         """insert new node after correct"""
         current = self.head
-        while current != value:
-            current._next = Node(newval, current._next)               
-
-        
+        if current:
+            while current != value:
+                current = current._next
+            current._next = Node(newval, current._next)
+        else:
+            self.head = Node(value)
+        return self.__str__  
 
