@@ -66,27 +66,26 @@ def test_append_method_a_couple_elements(small_ll):
     small_ll.append(5)
     assert len(small_ll) == 4
 
-# def test_insertBefore(small_ll):
-#     """insert new node before rigth one"""
-#     small_ll.insert_before(2,10)
-#     assert str(small_ll) == str([1, 10, 2])
+def test_insertBefore(small_ll):
+    """insert new node before rigth one"""
+    small_ll.insert_before(2,10)
+    assert str(small_ll) == str([1, 10, 2])
 
-# def test_insertBefore_change_head(small_ll):
-#     """insert new node at the head and change pointer"""
-#     small_ll.insert_before(1,5)
-#     assert small_ll.head.val == 5
+def test_insertBefore_change_head(small_ll):
+    """insert new node at the head and change pointer"""
+    small_ll.insert_before(1,5)
+    assert small_ll.head.val == 5
 
-# def test_insertAfter(small_ll):
-#     """insert new node after correct value"""
-#     small_ll.insert_after(2,4)
-#     assert str(small_ll.__str__) == str([1,2,4])
+def test_insertAfter(small_ll):
+    """insert new node after correct value"""
+    small_ll.insert_after(2,4)
+    assert str(small_ll.__str__) == str([1,2,4])
 
-# def test_insertAfter_(small_ll):
-#     """check if last is pointed to the None"""
-#     small_ll.insert_after(2,4)
-#     small_ll.insert_after(4,6)
-#     assert str(small_ll.__str__[-1]._next.val) == None
-
+def test_insertAfter_(small_ll):
+    """check if last is pointed to the None"""
+    small_ll.insert_after(2,4)
+    small_ll.insert_after(4,6)
+    assert str(small_ll.__str__[-1]._next.val) == None
     
 
 

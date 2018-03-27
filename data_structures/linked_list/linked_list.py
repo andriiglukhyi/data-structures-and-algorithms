@@ -60,24 +60,19 @@ class LinkedList:
         current._next = Node(value)      
 
     
-    # def insert_before(self, value, newval):
-    #     """insert new node before correct"""
-    #     current = self.head
-    #     while current._next != value:
-    #         current = current._next
-    #     current._next = Node(newval, current._next)
+    def insert_before(self, value, newval):
+        """insert new node before correct"""
+        current = self.head
+        while current._next != value:
+            current = current._next
+        current._next = Node(newval, current._next)
 
     
-    # def insert_after(self, value, newval):
-    #     """insert new node after correct"""
-    #     current = self.head
-    #     while current != value:
-    #         current._next = Node(newval, current._next)     
-
-        
-
-
-                
+    def insert_after(self, value, newval):
+        """insert new node after correct"""
+        current = self.head
+        while current != value:
+            current._next = Node(newval, current._next)               
 
         
 
