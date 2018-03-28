@@ -96,7 +96,7 @@ class LinkedList:
             print('out of range')
             return False
         else:
-            for item in range(value - 1):
+            for _ in range(value - 1):
                 current = current._next
         return current
 
