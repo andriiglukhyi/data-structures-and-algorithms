@@ -3,9 +3,7 @@ add more methods to the existing linked list class
 
 ## Challenge
 Write the following methods for the Linked List class:
-.append(value) which adds a new node with the given value to the end of the list
-.insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
-.insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
+Write a method for the Linked List class called kthFromEnd which takes a number, k, as an argument. Return the node that is k from the end of the linked list.
 
 ## Solution
 data-structures-and-algorithms/assets/linked-list.jpg
