@@ -24,7 +24,7 @@ class LinkedList:
         for _ in range(self._len+1):
             lis.append(current)
             current = current._next
-        return str(lis)
+        return str(lis) 
 
     
     def insert(self, val):
@@ -99,6 +99,32 @@ class LinkedList:
             for _ in range(value - 1):
                 current = current._next
         return current
+
+
+
+
+def merge_lists(list1, list2):
+    """merge two linked list"""
+    if len(list1)==0:
+        return list2.head
+    elif len(list2)==0:
+        return list1.head
+    else:
+        current_1 = list1.head
+        current_2 = list2.head
+        current_3 = current_2._next
+        while current_1 and current_2:
+            current_2 = current_3
+            current_1._next, current_2._next = current_2, current_1._next
+            current_1 = current_1._next
+        return list1.head
+
+
+            
+     
+
+    
+    
 
 
 
