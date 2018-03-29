@@ -99,6 +99,24 @@ class LinkedList:
             for _ in range(value - 1):
                 current = current._next
         return current
+    
+    def has_loop(self):
+        """mrthod will cj=heck for the loop inside LL"""
+        if self.head is None:
+            return False
+        if self.head._next is self.head:
+            return True
+        slow = self.head
+        fast = self.head
+        while fast is not None:
+            slow = slow._next
+            if fast._next is not None:
+                fast = fast._next._next 
+            else:
+                return False
+            if slow is fast:
+                return True
+        return False
 
 
 
