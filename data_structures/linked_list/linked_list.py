@@ -78,11 +78,10 @@ class LinkedList:
     
     def ll_kth_from_end(self, value):
         current = self.head
-        if len(self) - 1 < value or value < 0:
-            print('out of range')
+        if value > len(self) or value < 0:
             return False
         else:
-            for _ in range(value - 1):
+            for _ in range(value):
                 current = current._next
         return current
     
@@ -96,13 +95,10 @@ class LinkedList:
         fast = self.head
         while fast is not None:
             slow = slow._next
-            if fast._next is not None:
-                fast = fast._next._next
-            else:
-                return False
+            fast = fast._next._next
             if slow is fast:
                 return True
-        return False
+            return False
 
 
 def merge_lists(list1, list2):
