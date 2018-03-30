@@ -1,5 +1,6 @@
 from node import Node
 
+
 class LinkedList:
     """class for new linked lists"""
     def __init__(self, iter=[]):
@@ -12,7 +13,7 @@ class LinkedList:
     def __len__(self):
         """return len of the corrent object"""
         return self._len
-    
+
     def __str__(self):
         """return all items from the LL"""
         lis = ''
@@ -35,17 +36,11 @@ class LinkedList:
             return True
         else:
             current = self.head
-            nxt = current._next
-            if nxt.val == val:
-                return True
-            else:
-                while nxt.val != val and nxt is not None:
-                    current = nxt
-                    nxt = current._next
-                if nxt.val == val:
+            while current is not None:
+                if current.val == val:
                     return True
                 return False
-    
+
     def append(self, value):
         """append value at the end of the list"""
         current = self.head
@@ -55,7 +50,7 @@ class LinkedList:
             current._next = Node(value)
         else:
             self.head = Node(value)
-        return self.__str__        
+        return self.__str__
     
     def insert_before(self, value, newval):
         """insert new node before correct"""
@@ -102,7 +97,7 @@ class LinkedList:
         while fast is not None:
             slow = slow._next
             if fast._next is not None:
-                fast = fast._next._next 
+                fast = fast._next._next
             else:
                 return False
             if slow is fast:
