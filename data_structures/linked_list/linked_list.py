@@ -2,42 +2,36 @@ from node import Node
 
 class LinkedList:
     """class for new linked lists"""
-    def __init__(self, iter = []):
+    def __init__(self, iter=[]):
         self.head = None
-        self._len = 0 
+        self._len = 0
 
         for item in iter:
-            self.head = Node(item, self.head)
-            self._len += 1
-
-    
+            self.head = self.insert(item)
 
     def __len__(self):
         """return len of the corrent object"""
         return self._len
     
-    
     def __str__(self):
         """return all items from the LL"""
-        lis = []
+        lis = ''
         current = self.head
         for _ in range(self._len+1):
-            lis.append(current)
+            lis += str(current.val) + " "
             current = current._next
-        return str(lis) 
+        return lis
 
-    
     def insert(self, val):
         """add item to the LL"""
         self.head = Node(val, self.head)
         self._len += 1
     
-
     def find(self, val):
         """search for element and return True or false"""
-        if self.head == None:
+        if self.head is None:
             return False
-        elif self.head == val:
+        elif self.head.val == val:
             return True
         else:
             current = self.head
@@ -45,7 +39,7 @@ class LinkedList:
             if nxt.val == val:
                 return True
             else:
-                while nxt.val != val and nxt is not None :
+                while nxt.val != val and nxt is not None:
                     current = nxt
                     nxt = current._next
                 if nxt.val == val:
@@ -61,8 +55,7 @@ class LinkedList:
             current._next = Node(value)
         else:
             self.head = Node(value)
-        return self.__str__
-
+        return self.__str__        
     
     def insert_before(self, value, newval):
         """insert new node before correct"""
@@ -74,8 +67,6 @@ class LinkedList:
         else:
             self.head = Node(value)
         return self.__str__
-            
-
     
     def insert_after(self, value, newval):
         """insert new node after correct"""
@@ -88,11 +79,11 @@ class LinkedList:
         else:
             self.head = Node(value)
             return True
-        return False  
+        return False
     
     def ll_kth_from_end(self, value):
         current = self.head
-        if len(self) - 1 < value  or value < 0:
+        if len(self) - 1 < value or value < 0:
             print('out of range')
             return False
         else:
@@ -119,13 +110,11 @@ class LinkedList:
         return False
 
 
-
-
 def merge_lists(list1, list2):
     """merge two linked list"""
-    if len(list1)==0:
+    if len(list1) == 0:
         return list2.head
-    elif len(list2)==0:
+    elif len(list2) == 0:
         return list1.head
     else:
         current_1 = list1.head
