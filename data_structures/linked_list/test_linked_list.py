@@ -27,17 +27,17 @@ def test_node_class():
 
 def test_node_class_next():
     """test for next element"""
-    assert nd(0,4)._next == 4
+    assert nd(0, 4)._next == 4
 
 
 def test_node_without_next():
     """test when points to the none"""
-    assert nd(3)._next == None
+    assert nd(3)._next is None
 
 
 def test_ll_len():
     """test inreract with len"""
-    assert len(ll([1,2])) == 2
+    assert len(ll([1, 2])) == 2
 
 
 def test_str_repr_of_ll(small_ll):
@@ -48,12 +48,12 @@ def test_str_repr_of_ll(small_ll):
 
 def test_small_array_find(small_ll):
     """item in ll"""
-    assert small_ll.find(1) == True
+    assert small_ll.find(1) is True
 
 
 def test_small_array_find_not_exist(empty_ll):
     """test item not in ll"""
-    assert empty_ll.find(4) == False
+    assert empty_ll.find(4) is False
 
 
 def test_find_not_exist(empty_ll):
@@ -78,26 +78,26 @@ def test_append_method_a_couple_elements(small_ll):
 
 def test_insertBefore(small_ll):
     """insert new node before rigth one"""
-    small_ll.insert_before(2,10)
+    small_ll.insert_before(2, 10)
     assert small_ll == '1102'
 
 
 def test_insertBefore_change_head(small_ll):
     """insert new node at the head and change pointer"""
-    small_ll.insert_before(1,5)
+    small_ll.insert_before(1, 5)
     assert small_ll.head == 5
 
 
 def test_insertAfter(small_ll):
     """insert new node after correct value"""
-    small_ll.insert_after(2,4)
+    small_ll.insert_after(2, 4)
     assert small_ll == '124'
 
 
 def test_insertAfter_(small_ll):
     """check if last is pointed to the None"""
-    small_ll.insert_after(2,4)
-    small_ll.insert_after(4,6)
+    small_ll.insert_after(2, 4)
+    small_ll.insert_after(4, 6)
     assert small_ll.__str__[-1] == '6'
 
 
