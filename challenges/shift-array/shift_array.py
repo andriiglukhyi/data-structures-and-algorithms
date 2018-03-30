@@ -3,7 +3,7 @@ def insert_shift_array(array, value):
     if type(value) != int or type(array) != list:
         return False
     elif len(array) == 0:
-        array.append(value)
+        array[0] = 0
         return array
     else:
         if len(array) > 0 and len(array) % 2 == 0: 
