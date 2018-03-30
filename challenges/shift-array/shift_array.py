@@ -1,4 +1,4 @@
-def insert_shift_array(array,value):
+def insert_shift_array(array, value):
     """algoritm should add element in array and shit tht array to the rigth"""
     if type(value) != int or type(array) != list:
         return False
@@ -6,9 +6,9 @@ def insert_shift_array(array,value):
         array.append(value)
         return array
     else:
-        if len(array) > 0 and len(array)%2 == 0: 
+        if len(array) > 0 and len(array) % 2 == 0: 
             midle = len(array)//2
-        elif len(array)>0 and len(array)%2 == 1:
+        elif len(array) > 0 and len(array) % 2 == 1:
             midle = len(array)//2 + 1
         else:
             midle = 0
@@ -21,9 +21,4 @@ def insert_shift_array(array,value):
         array = new_array
         print(array)
     return array
-
-
-if __name__ == '__main__':
-    insert_shift_array(0, 1)
-
-     
+    
