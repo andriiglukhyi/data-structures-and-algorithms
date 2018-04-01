@@ -8,25 +8,26 @@ class Stack:
         self._len = 0
 
         for item in iter:
-            self.push(item)
+            self.push(item)            
     
     def __len__(self):
         """return len of the corrent object"""
         return self._len
     
     def __str__(self):
-        """return items in stack"""
-        st = ''
+        """ return all items from the LL """
+        lis = ""
         current = self.top
-        for _ in range(len(self)):
+        while current:
             print(current.val)
-            st += str(current.val)
+            lis += str(current.val) + " "
             current = current._next
-        return st.rstrip()
+        return lis
     
     def push(self, val):
         """add item to the stack"""
         self.top = Node(val, self.top)
+        print(self.top.val)
         self._len += 1
     
     def pop(self):
@@ -44,4 +45,3 @@ class Stack:
             raise IndexError('stack are empty')
         else:
             return self.top
-    
