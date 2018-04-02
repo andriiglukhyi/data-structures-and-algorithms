@@ -77,13 +77,16 @@ class LinkedList:
         return False
     
     def ll_kth_from_end(self, value):
-        current = self.head
-        if value > len(self) or value < 0:
-            return False
-        else:
-            for _ in range(value):
-                current = current._next
-        return current
+        """ find node (k) from end """
+        x = self._size - (k-1)
+        node = self.head
+        counter = 0
+        while node:
+            if counter == x:
+                return node
+            counter += 1
+            node = node._next
+        raise IndexError('Requested node outside link list length')
     
     def has_loop(self):
         """mrthod will cj=heck for the loop inside LL"""
