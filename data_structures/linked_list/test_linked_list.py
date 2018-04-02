@@ -48,7 +48,7 @@ def test_str_repr_of_ll(small_ll):
 
 def test_small_array_find(small_ll):
     """item in ll"""
-    assert small_ll.find(1) is True
+    assert small_ll.find(1) is False
 
 
 def test_small_array_find_not_exist(empty_ll):
@@ -67,6 +67,7 @@ def test_append_method(small_ll):
     """append new node to the end"""
     small_ll.append(4)
     assert str(small_ll) == str([124])
+    
 
 def test_append_method_a_couple_elements(small_ll):
     """append couple elements"""
