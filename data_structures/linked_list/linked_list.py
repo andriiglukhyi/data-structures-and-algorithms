@@ -39,7 +39,7 @@ class LinkedList:
             while current is not None:
                 if current.val == val:
                     return True
-                return False
+            return False
 
     def append(self, value):
         """append value at the end of the list"""
@@ -76,9 +76,9 @@ class LinkedList:
             return True
         return False
     
-    def ll_kth_from_end(self, value):
+    def ll_kth_from_end(self, k):
         """ find node (k) from end """
-        x = self._size - (k-1)
+        x = self._len - (k-1)
         node = self.head
         counter = 0
         while node:
