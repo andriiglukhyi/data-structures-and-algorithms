@@ -32,12 +32,13 @@ class Stack:
     def pop(self):
         """pop one item from top of the stack"""
         if len(self) == 0:
-            raise IndexError('no itesm')
+            raise IndexError('no items')
         if len(self) == 1:
             return self.top
         else:
-            current = self.top
-            self.top = current._next
+            # import pdb; pdb.set_trace()
+            current = self.top.val
+            self.top = self.top._next
             self._len -= 1
             return current
 
