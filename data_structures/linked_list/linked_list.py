@@ -16,49 +16,55 @@ class LinkedList:
 
     def __str__(self):
         """return all items from the LL"""
-        lis = []
+        lis = ''
         current = self.head
-        for _ in range(self._len+1):
-            lis.append(current)
+        print(current.val)
+        while current._next:
+            lis += str(current.val) + ' '
             current = current._next
-        return str(lis)
+        return lis
 
     def insert(self, val):
         """add item to the LL"""
-        self.head = Node(val, self.head)
+        node = Node(val, self.head)
+        # self.head = Node(val, self.head)
+        self.head = node
         self._len += 1
+        print(self.head.val)
+        return self.head
+
     
     def find(self, val):
         """search for element and return True or false"""
         if self.head is None:
             return False
-        elif self.head.val == val:
+        elif self.head == val:
             return True
         else:
             current = self.head
-            while current is not None:
-                if current.val == val:
-                    return True
-            return False
+        while current:
+            if val == current:
+                return True
+            current = current._next
+        return False
 
     def append(self, value):
         """append value at the end of the list"""
         current = self.head
-        if current:
-            while current._next:
-                current = current._next
-            current._next = Node(value)
-            self._len += 1
-        else:
-            self.head = Node(value)
-            self._len += 1
-        return self.__str__
+        while current._next:
+            current = current._next
+            # print(current.val)
+        current._next = Node(value)
+        print(current.val)
+        # print(current._next.val)
+
+        self._len += 1
     
     def insert_before(self, value, newval):
         """insert new node before correct"""
         current = self.head
         if current:
-            while current._next.val != value:
+            while current._next != value:
                 current = current._next
             current._next = Node(newval, current._next)
             self._len += 1
@@ -80,7 +86,7 @@ class LinkedList:
             self.head = Node(value)
             self._len += 1
             return True
-        return False
+        return self.__str__
     
     def ll_kth_from_end(self, k):
         """ find node (k) from end """
