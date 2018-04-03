@@ -46,7 +46,7 @@ def test_small_str(empty_st):
 
 def test_small_str_(small_st):
     """test string repr of non rmpty list"""
-    assert str(small_st) == str([5, 4, 2, 1])
+    assert str(small_st) == '5 4 2 1'
 
 
 def test_small_pop(small_st):

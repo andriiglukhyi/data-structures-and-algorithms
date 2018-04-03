@@ -17,14 +17,14 @@ def test_empty_empty_q(empty_q):
     """test empty queue"""
     assert empty_q.front is None
     assert empty_q.back is None
-    assert len(empty_q) == 0
+    assert empty_q._len == 0
 
 
 def test_constractor(empty_q):
     """test multiply enqueue"""
     empty_q.enqueue(1)
     empty_q.enqueue(2)
-    assert len(empty_q) == 2
+    assert empty_q._len == 2
     assert empty_q.front.val == 1
     assert empty_q.back.val == 2
 
@@ -33,19 +33,20 @@ def test_empty_empty_add(empty_q):
     """test enqueue with empty"""
     empty_q.enqueue(2)
     assert empty_q.front.val == 2
-    assert len(empty_q) == 1
+    assert empty_q._len == 1
     assert empty_q.back.val == 2
 
 
 def test_small_len(small_q, empty_q):
     """test len method """
-    assert len(small_q) == 4
-    assert len(empty_q) == 0
+    assert small_q._len == 4
+    assert empty_q._len == 0
 
 
 def test_small_str(small_q):
     """test str repr"""
-    assert str(small_q) == '5 4 2 1'
+    # import pdb; pdb.set_trace()
+    assert str(small_q) == '1 2 4 5'
 
 
 def test_small_enquue(small_q):
@@ -70,7 +71,7 @@ def test_dequue(small_q):
 def test_dequue_len(small_q):
     """test dequeue len"""
     small_q.dequeue()
-    assert len(small_q) == 3
+    assert small_q._len == 3
 
 
 def test_empty_dequeue(empty_q):

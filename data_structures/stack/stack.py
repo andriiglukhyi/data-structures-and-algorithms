@@ -22,7 +22,7 @@ class Stack:
             print(current.val)
             lis += str(current.val) + " "
             current = current._next
-        return lis
+        return lis.rstrip()
     
     def push(self, val):
         """add item to the stack"""
