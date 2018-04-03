@@ -34,13 +34,16 @@ class Stack:
         if len(self) == 0:
             raise IndexError('no items')
         if len(self) == 1:
-            return self.top
+            curent = self.top 
+            self.top = None
+            return curent.val
+
         else:
             # import pdb; pdb.set_trace()
-            current = self.top.val
+            current = self.top
             self.top = self.top._next
             self._len -= 1
-            return current
+            return current.val
 
     def peek(self):
         if len(self) == 0:
