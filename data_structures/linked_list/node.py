@@ -5,4 +5,3 @@ class Node:
 
     def __str__(self):
         return self.val
-        
