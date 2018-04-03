@@ -16,12 +16,12 @@ class LinkedList:
 
     def __str__(self):
         """return all items from the LL"""
-        lis = ''
+        lis = []
         current = self.head
         for _ in range(self._len+1):
-            lis += str(current.val) + " "
+            lis.append(current)
             current = current._next
-        return lis
+        return str(lis)
 
     def insert(self, val):
         """add item to the LL"""
@@ -48,8 +48,10 @@ class LinkedList:
             while current._next:
                 current = current._next
             current._next = Node(value)
+            self._len += 1
         else:
             self.head = Node(value)
+            self._len += 1
         return self.__str__
     
     def insert_before(self, value, newval):
@@ -59,8 +61,10 @@ class LinkedList:
             while current._next.val != value:
                 current = current._next
             current._next = Node(newval, current._next)
+            self._len += 1
         else:
             self.head = Node(value)
+            self._len += 1
         return self.__str__
     
     def insert_after(self, value, newval):
@@ -70,14 +74,18 @@ class LinkedList:
             while current.val != value:
                 current = current._next
             current._next = Node(newval, current._next)
+            self._len += 1
             return True
         else:
             self.head = Node(value)
+            self._len += 1
             return True
         return False
     
     def ll_kth_from_end(self, k):
         """ find node (k) from end """
+        if k < 0 or self._len - k < 0:
+            return False
         x = self._len - (k-1)
         node = self.head
         counter = 0
@@ -86,7 +94,7 @@ class LinkedList:
                 return node
             counter += 1
             node = node._next
-        raise IndexError('Requested node outside link list length')
+            return node
     
     def has_loop(self):
         """mrthod will cj=heck for the loop inside LL"""
