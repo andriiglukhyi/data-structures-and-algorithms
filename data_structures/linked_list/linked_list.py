@@ -18,8 +18,7 @@ class LinkedList:
         """return all items from the LL"""
         lis = ''
         current = self.head
-        print(current.val)
-        while current._next:
+        while current:
             lis += str(current.val) + ' '
             current = current._next
         return lis
@@ -30,10 +29,8 @@ class LinkedList:
         # self.head = Node(val, self.head)
         self.head = node
         self._len += 1
-        print(self.head.val)
         return self.head
 
-    
     def find(self, val):
         """search for element and return True or false"""
         if self.head is None:
@@ -53,39 +50,50 @@ class LinkedList:
         current = self.head
         while current._next:
             current = current._next
-            # print(current.val)
         current._next = Node(value)
-        print(current.val)
-        # print(current._next.val)
 
         self._len += 1
     
     def insert_before(self, value, newval):
         """insert new node before correct"""
-        current = self.head
-        if current:
-            while current._next != value:
+        if self.head is not None:
+            # import pdb; pdb.set_trace()
+            current = self.head
+            if self.head == value:
+                self.head = Node(newval, self.head)
+            while current._next:
                 current = current._next
-            current._next = Node(newval, current._next)
-            self._len += 1
+                if current.val == value:
+                    nxt = current._next
+                    current._next = Node(newval, nxt)
+                    self._len += 1
+                else:
+                    return False
         else:
-            self.head = Node(value)
+            self.head = Node(newval)
             self._len += 1
         return self.__str__
     
     def insert_after(self, value, newval):
         """insert new node after correct"""
-        current = self.head
-        if current:
-            while current.val != value:
+        # import pdb; pdb.set_trace()
+        print(str(self))
+        if self.head is not None:
+            current = self.head
+            if self.head.val == value:
+                self.head._next = Node(newval, current._next)
+                return True
+            while current._next:
                 current = current._next
-            current._next = Node(newval, current._next)
-            self._len += 1
-            return True
+                if current.val == value:
+                    nxt = current._next
+                    current._next = Node(newval, nxt)
+                    self._len += 1
+                else:
+                    return False
         else:
-            self.head = Node(value)
+            self.head = Node(newval)
             self._len += 1
-            return True
         return self.__str__
     
     def ll_kth_from_end(self, k):
