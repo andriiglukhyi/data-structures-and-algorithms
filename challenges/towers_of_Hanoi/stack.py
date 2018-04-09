@@ -36,6 +36,7 @@ class Stack:
         if len(self) == 1:
             curent = self.top 
             self.top = None
+            self._len -= 1
             return curent.val
 
         else:
