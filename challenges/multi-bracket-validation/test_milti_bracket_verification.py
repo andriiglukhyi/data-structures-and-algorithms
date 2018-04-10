@@ -19,3 +19,7 @@ def test_not_match_input():
 def test_wrong_input():
     """test input is not a string"""
     assert multi([1, 2, 3, 4]) is False
+
+
+def test_new():
+    assert multi('[[[abc]]') is False

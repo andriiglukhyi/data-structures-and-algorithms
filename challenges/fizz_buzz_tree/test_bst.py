@@ -37,3 +37,4 @@ def test_post_order(min_bst):
 def test_post_order_(empty_bst):
     """empty bst"""
     assert fizz_buzz_tree(empty_bst) is False
+    

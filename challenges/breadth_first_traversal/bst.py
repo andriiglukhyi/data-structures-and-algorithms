@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self, val):
         self.val = val
@@ -19,7 +20,7 @@ class BST:
             self.insert(item)
 
     def __repr__(self):
-        return '<BST Root {}>'.format(self.root.val)
+        return self.root.val
 
     def __str__(self):
         return self.root.val
