@@ -1,4 +1,3 @@
-
 def fizz_buzz_tree(tree):
     """function takes a binary tree as an argument """
     

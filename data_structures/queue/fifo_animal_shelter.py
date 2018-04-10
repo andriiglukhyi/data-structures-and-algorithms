@@ -1,6 +1,18 @@
 from .node import Node
 
 
+class Animal:
+    pass
+
+
+class Cat(Animal):
+    pass
+
+
+class Dog(Animal):
+    pass
+
+
 class AnimalShelter:
     
     def __init__(self, iterable=[]):
@@ -11,31 +23,26 @@ class AnimalShelter:
 
         for item in iterable:
             self.enqueue(item)
-    
-    def __repr__(self):
-        """print out the front of the q"""
-        return 'Queue front: {}'.format(self.oldest.val)
 
     def __str__(self):
         """ return all items from the q """
-        lis = ""
+        lis = []
         current = self.oldest
         while current:
-            lis += str(current.val) + " "
+            lis.append(current)
             current = current.next
-        return lis.rstrip()
+        return lis
 
-    def enqueue(self, amiamal):
+    def enqueue(self, animal):
         """adds animal to the shelter"""
-        node = Node(amiamal)
         if self._len == 0:
-            self.oldest = self.newest = node
+            self.oldest = self.newest = animal
             self._len += 1
-            return node
-        self.newest.next = node
-        self.newest = node
+            return self.oldest
+        self.newest.next = animal
+        self.newest = animal
         self._len += 1
-        return node
+        return self.newest
 
     def dequeue(self, pref=None):
         """remove animal from the"""
@@ -50,10 +57,11 @@ class AnimalShelter:
             temp = self.oldest
             while temp.next:
                 temp = temp.next
-            if temp.val == pref:
-                self._len -= 1
+                if isinstance(temp, pref):
+                    self._len -= 1
                 return temp
             else:
                 return False
         except IndexError:
             return False
+
