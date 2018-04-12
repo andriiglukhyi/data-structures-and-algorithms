@@ -32,3 +32,4 @@ def test_small_bst(small_bst):
 def test_large_bst(large_bst):
     """test large bst"""
     assert find_maximum_value(large_bst) == 45
+    
