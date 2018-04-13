@@ -1,18 +1,22 @@
 
 class Node:
+    """node class"""
     def __init__(self, val):
         self.val = val
         self.right = None
         self.left = None
 
     def __repr__(self):
+        """repe function for the node class"""
         return '<Node Val: {}'.format(self.val)
 
     def __str__(self):
+        """return node val"""
         return self.val
 
 
 class BST:
+    """bst class"""
     def __init__(self, iter=[]):
         self.root = None
         
@@ -20,14 +24,17 @@ class BST:
             self.insert(item)
 
     def __repr__(self):
+        """return value of the node"""
         return '<BST Root {}>'.format(self.root.val)
 
     def __str__(self):
+        """return value of the node"""
         return self.root.val
 
     def in_order(self, operation):
         """in_order traversal"""
         def _walk(node=None):
+            """walk finction jump from node to node"""
             if node is None:
                 return
 
@@ -44,6 +51,7 @@ class BST:
             _walk(self.root)
     
     def insert(self, val):
+        """add node to the binary tree"""
         node = Node(val)
 
         def _insert(current, node):
