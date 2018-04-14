@@ -100,15 +100,14 @@ class LinkedList:
         """ find node (k) from end """
         if k < 0 or self._len - k < 0:
             return False
-        x = self._len - (k-1)
+        size = len(self)
+        index = size - k - 1
+        if not (0 <= index < size):
+            raise IndexError('LinkedList index out of bounds')
         node = self.head
-        counter = 0
-        while node:
-            if counter == x:
-                return node
-            counter += 1
+        for _ in range(index):
             node = node._next
-            return node
+        return node
     
     def has_loop(self):
         """mrthod will cj=heck for the loop inside LL"""

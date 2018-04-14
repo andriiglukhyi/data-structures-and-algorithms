@@ -13,6 +13,11 @@ def small_ll():
     return ll([1, 2])
 
 
+@pytest.fixture
+def big_ll():
+    return ll([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
+
+
 def test_insert_first_node(empty_ll):
     """test insert node """
     assert empty_ll.head is None
@@ -115,6 +120,15 @@ def test_kth_from_end_out_of_range(small_ll):
 def test_kth_from_end_less_then_0(small_ll):
     """test if value in appropeiate"""
     assert small_ll.ll_kth_from_end(-5) is False
+
+
+def test_big_ll(big_ll):
+    """test big ll"""
+    assert big_ll.ll_kth_from_end(0).val == 10
+    assert big_ll.ll_kth_from_end(1).val == 9
+    assert big_ll.ll_kth_from_end(2).val == 8
+    assert big_ll.ll_kth_from_end(3).val == 7
+    assert big_ll.ll_kth_from_end(5).val == 5
 
 
 
