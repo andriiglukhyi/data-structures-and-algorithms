@@ -5,7 +5,7 @@ class Node:
         self.next = next
 
     def __repr__(self):
-        return 'Node value: {}'.format(self.val)
+        return self.val
 
     def __str__(self):
         return str(self.val)

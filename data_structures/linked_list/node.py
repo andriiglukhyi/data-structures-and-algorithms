@@ -4,4 +4,4 @@ class Node:
         self._next = next
 
     def __str__(self):
-        return self.val
+        return str(self.val)
