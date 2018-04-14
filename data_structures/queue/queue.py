@@ -12,7 +12,7 @@ class Queue:
 
     def __repr__(self):
         """print out the front of the q"""
-        return 'Queue front: {}'.format(self.front.val)
+        return self.front.val
 
     def __str__(self):
         """ return all items from the LL """
