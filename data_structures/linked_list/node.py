@@ -1,7 +1,9 @@
 class Node:
     def __init__(self, val, next=None):
+        """init function"""
         self.val = val
         self._next = next
 
     def __str__(self):
-        return str(self.val)
+        """str representation"""
+        return str(\self.val)
