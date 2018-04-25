@@ -1,9 +1,19 @@
-from .node import Node
+
+class Node:
+    def __init__(self, val, next=None):
+        """new node"""
+        self.val = val
+        self.next = next
+
+    def __repr__(self):
+        return 'Node value: {}'.format(self.val)
+
+    def __str__(self):
+        return str(self.val)
 
 
 class Queue:
     def __init__(self, iterable=[]):
-        """constractor function"""
         self.back = None
         self.front = None
         self._len = 0
@@ -25,7 +35,6 @@ class Queue:
         return lis.rstrip()
 
     def enqueue(self, val):
-        """enquueu item """
         node = Node(val)
         if self._len == 0:
             self.front = self.back = node
@@ -37,7 +46,6 @@ class Queue:
         return node
 
     def dequeue(self):
-        """dequeue item"""
         if self._len == 0:
             return False
         temp = self.front
