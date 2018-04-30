@@ -25,4 +25,5 @@ def print_level_order(tree):
     while qu1.front:
         swap(qu1, qu2)
         swap(qu2, qu1)
+    print(end)
     return end
