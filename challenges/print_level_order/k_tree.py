@@ -83,6 +83,7 @@ class KTree:
             for item in node.children:
                 qu.enqueue(item)
             return False
+        import pdb; pdb.set_trace()
         for item in self.root.children:
             qu.enqueue(item)
         top = qu.dequeue()

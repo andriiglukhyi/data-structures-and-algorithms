@@ -21,8 +21,7 @@ class HashTable:
     def set(self, key, val):
         """set item to the bucket"""
         if type(key) is not str:
-            return False
-        
+            return False       
         number = self.hash_key(key)
         if self.buckets[number] is not None:
             if type(self.buckets[number]) == dict:
@@ -30,40 +29,58 @@ class HashTable:
                 ll = LinkedList()
                 ll.insert(self.buckets[number])
                 ll.insert({key: val})
-                self.buckets[number] == ll
-                return
+                print(ll.head)
+                self.buckets[number] = ll
+                print(self.buckets[number].head.val)
             else:
                 self.buckets[number].insert({key: val})
-                return
         
-        self.buckets[number] = {key: val}
+        else:
+            self.buckets[number] = {key: val}
     
     def get(self, key):
         """get item from the list"""
-        curent_bucket = self.buckets[self.hash_key(key)]
-        while curent_bucket.head:
-            if curent_bucket.head.val[key]:
-                return curent_bucket.head.val[key]
-            curent_bucket.head = curent_bucket.head.next
-    
+        if type(key) is not str:
+            return False
+        number = self.hash_key(key)
+        if self.buckets[number] is not None:
+            curent_bucket = self.buckets[number]
+            if type(curent_bucket) != dict:
+                curent = curent_bucket.head
+                while curent:
+                    if key in curent.val:
+                        return curent.val[key]
+                    curent = curent._next
+                    return False  # if key not in the bucket
+
+            else:
+                return self.buckets[number][key]
+        else:
+            return False
+                        
     def remove(self, key):
         """remove mode from bucket"""
-        # curent_bucket = self.buckets[self.hash_key(key)]
-
-        # curent = curent_bucket.head
-        # nxt = curent.next
-
-        # if curent.val[key]:
-        #         curent_bucket.head = nxt
-        
-        # while nxt:
-        #     if nxt.val[key]:
-        #         curent.next = nxt.next
-            
-
-        # self.buckets[self.hash_key(key)] = None
-        # return temp
-        pass
-
-               
-        
+        if type(key) is not str:
+            return False
+        number = self.hash_key(key)
+        if self.buckets[number] is not None:
+            curent_bucket = self.buckets[number]
+            curent = curent_bucket.head
+            if curent._next:
+                if key in curent.val:
+                    temp = curent.val[key]
+                    curent_bucket.head = curent_bucket.head._next
+                    return
+                while curent._next:
+                    nxt = curent._next
+                    if nxt.val[key]:
+                        temp = nxt.val[key]
+                        curent = nxt._next
+                        return temp
+                return False
+            else:
+                temp = curent.val[key]
+                self.buckets.remove(self.buckets[number])
+                return temp
+        else:
+            return False

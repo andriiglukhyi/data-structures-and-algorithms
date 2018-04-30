@@ -31,7 +31,7 @@ def big_table():
     big_table.set('Arina', 123456)
     big_table.set('Arina', '123')
     big_table.set('Arina', 'sdf')
-    return small_table
+    return big_table
 
 
 def test_init_function():
@@ -87,9 +87,43 @@ def test_set_fucntion_multiply(empty_hash_table):
 
 def test_collision(small_table):
     """test collision handling"""
-    assert small_table.buckets[9].head
-    # assert small_table.buckets[399]['John'] == 1234
+    assert small_table.buckets[9]
     small_table.set('John', 'string')
-    # assert small_table.buckets[399].head
+    assert small_table.buckets[9].head
+    assert len(small_table.buckets[9]) == 3
+    assert small_table.buckets[9].head.val['John'] == 'string'
 
 
+def test_get_function(small_table):
+    """test get small table"""
+    assert small_table.get(123) is False
+    assert len(small_table.buckets[9]) == 2
+    assert small_table.get('anna') == 123456
+    assert small_table.get('John') == 'sdf'
+    assert small_table.get('dsfsd') is False
+
+
+def test_remove_function(small_table):
+    """test remove function"""
+    assert small_table.remove(23423) is False
+    assert small_table.remove('notinthelisr') is False
+    assert small_table.get('John') == 'sdf'
+    small_table.remove('John')
+    assert small_table.get('John') == 1234 
+
+
+def test_remove_two_items(small_table):
+    """test multiply remove from bucket"""
+    small_table.remove('John')
+    small_table.remove('John')
+    assert small_table.get('John') is False
+
+
+def test_remove_item_miltiply_value():
+    """test remove for multiply var for big bucket"""
+    small_table = HashTable(3)
+    small_table.set('abc', 1)
+    small_table.set('cba', 2)
+    small_table.set('bca', 123)
+    small_table.remove('cba')
+    assert small_table.buckets[small_table.hash_key('cba')].head.val == {'bca': 123}

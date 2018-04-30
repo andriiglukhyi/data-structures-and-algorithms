@@ -18,6 +18,14 @@ def small_k_tree():
     small_tree.insert(10, 1)
     return small_tree
 
+@pytest.fixture
+def new_k_tree():
+    """make small k_tree"""
+    new_tree = KTree()
+    new_tree.insert(100)
+
+    return new_tree
+
 
 @pytest.fixture
 def big_k_tree():
@@ -40,9 +48,18 @@ def test_print_level_order_empty_tree(empty_k_tree):
 
 def test_print_level_order_small_tree(small_k_tree):
     """test small tree"""
-    assert pl(small_k_tree)[:-4] == '1 \n 2 10  \n'
+
+    assert pl(small_k_tree) == 'wewefef'
 
 
 def test_print_velel_big_tree(big_k_tree):
     """test big tree"""
-    assert pl(big_k_tree)[:-4] == '1 \n 2 3  \n 4 5 6 7'
+    print(pl(big_k_tree))
+    assert pl(big_k_tree)[:-4] == 'qwdd'
+
+
+def test_print_velel_new_tree(new_k_tree):
+    """test big tree"""
+    print(pl(new_k_tree))
+    assert pl(new_k_tree) == 100
+
