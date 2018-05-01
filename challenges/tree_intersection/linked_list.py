@@ -7,6 +7,7 @@ class Node:
     def __str__(self):
         """str representation"""
         return str(self.val)
+        
 
 
 class LinkedList:

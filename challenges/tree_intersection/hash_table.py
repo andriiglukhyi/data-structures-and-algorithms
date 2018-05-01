@@ -1,6 +1,7 @@
 from linked_list import LinkedList
 
 
+
 class HashTable:
 
     def __init__(self, max_size=1024):

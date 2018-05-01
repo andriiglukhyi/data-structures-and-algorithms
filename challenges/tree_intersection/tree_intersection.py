@@ -15,3 +15,4 @@ def tree_intersection(tree1, tree2):
             arr.append(value)
     tree2.in_order(check)
     return arr
+
