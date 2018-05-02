@@ -46,3 +46,4 @@ def test_if_two_tables(table_one, table_two):
 def test_when_first_array_is_empty(table_one, empty_hash_table):
     """test if first table hase no buckets"""
     assert left_join(empty_hash_table, table_one) == []
+    

@@ -22,4 +22,3 @@ def left_join(map1, map2):
         return end
     else:
         return [x for x in map1.buckets if type(x) == dict] 
-
