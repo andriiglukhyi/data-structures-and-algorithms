@@ -6,7 +6,7 @@ def tree_intersection(tree1, tree2):
     if tree1.root is None or tree2.root is None:
         return False
     table = HashTable()
-    tree1.in_order(table.set)
+    tree1.pre_order(table.set)
     arr = []
     
     def check(value):
