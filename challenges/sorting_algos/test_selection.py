@@ -42,6 +42,3 @@ def test_big_array_(small_array):
 def test_big_array(duplicate_array):
     """check array with duplicates"""
     assert sorting_algos(duplicate_array) == sorted(duplicate_array)
-
-
-    

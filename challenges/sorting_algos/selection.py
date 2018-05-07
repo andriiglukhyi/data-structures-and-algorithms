@@ -8,4 +8,3 @@ def sorting_algos(arr):
                 arr[item], arr[cell] = arr[cell], arr[item]
 
     return arr
-
