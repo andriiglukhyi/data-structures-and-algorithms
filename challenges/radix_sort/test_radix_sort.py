@@ -14,3 +14,11 @@ def test_small_array():
     """
     arr = [4, 2, 5, 10, 4]
     assert radix_sort(arr) == sorted(arr)
+
+
+def test_big_array():
+    """
+    test big array
+    """
+    arr = [1000, 100, 10, 0]
+    assert radix_sort(arr) == sorted(arr)
