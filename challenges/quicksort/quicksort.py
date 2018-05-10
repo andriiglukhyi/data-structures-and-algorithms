@@ -1,5 +1,5 @@
 def quicksort(arr):
-    """"""
+    """quick sort function"""
     if len(arr) < 2:
         return
     quicksort2(arr, 0, len(arr)-1)
@@ -28,7 +28,7 @@ def get_pivot(a, low, hi):
 
 
 def partition(a, low, hi):
-    """"""
+    """make partition for recursive calls"""
     pivotindex = get_pivot(a, low, hi)
     pivot_val = a[pivotindex]
     a[pivotindex], a[low] = a[low], a[pivotindex]
