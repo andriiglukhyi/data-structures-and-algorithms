@@ -20,5 +20,6 @@ def test_big_array():
 
 
 def test_mixed_array():
+    """test big array"""
     arr = [7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1]
     assert qs(arr) == sorted(arr)
