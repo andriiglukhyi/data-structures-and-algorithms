@@ -1,6 +1,6 @@
 def quicksort(arr):
     """"""
-    if len(arr) == 2:
+    if len(arr) < 2:
         return
     quicksort2(arr, 0, len(arr)-1)
     return arr
