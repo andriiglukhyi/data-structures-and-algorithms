@@ -119,5 +119,10 @@ class Brokoli:
 
 
     
+data = [4,5,7,5,1,0,8,45,6,3]
+nw = Brokoli()
+
+for item in data:
+    nw.insert(item)
     
      
