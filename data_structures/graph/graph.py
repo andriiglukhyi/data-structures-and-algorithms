@@ -1,3 +1,6 @@
+from vertex import Vertex
+from edge import Edge
+
 class Graph:
     """
     Representation of a simple graph using an adjacency map
@@ -77,12 +80,21 @@ class Graph:
         """
         Insert and return a new Vertex with element x.
         """
+        v = Vertex(x)
+        self._outgoing[v] = {}
+        if self.is_directed:
+            self._incoming = {}
+        return v
+
     
     def insert_edge(self, u, v, x=None):
         """
         Insert and return a new Edge from u to v with auxiliary element x.
         """
-
+        e = Edge(u, v, x)
+        self._incoming[u][v] = e
+        self._outgoing[u][v] = e
+        
     
 
         
