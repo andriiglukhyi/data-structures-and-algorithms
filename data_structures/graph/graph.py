@@ -62,13 +62,16 @@ class Graph:
             return len(adj.get())
         return False
 
-    
     def incident_edges(self, v, outgoing=True):
         """
         Return all (outgoing) edges incident to vertex v in the graph.
         If graph is directed, optional parameter used to request incoming edges.
         """
         adj = self._outgoing if outgoing else self._incoming
+        if v in adj:
+            for edge in adj[v].values():
+                yield edge
+        return False
     
     def insert_vertex(self, x=None):
         """
