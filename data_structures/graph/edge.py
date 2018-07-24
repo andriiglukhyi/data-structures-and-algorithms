@@ -35,4 +35,3 @@ class Edge:
         Will allow edge to be a map/set key
         """
         return hash( (self._origin, self._destination) )
-        
