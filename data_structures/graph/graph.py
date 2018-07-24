@@ -45,6 +45,41 @@ class Graph:
             result.append(secondary_map.values())
         return result
     
+    def get_edge(self, u, v):
+        """
+        Return the edge from u to v, or None if not adjacent.
+        """
+        if u in self._outgoing:
+            return self._outgoing[v].get(v)
+        return False
+    
+    def degree(self, v, outgoing=True):
+        """
+        Return number of (outgoing) edges incident to vertex v in the graph.
+        """
+        adj = self._outgoing if outgoing else self._incoming
+        if v in adj:
+            return len(adj.get())
+        return False
+
+    
+    def incident_edges(self, v, outgoing=True):
+        """
+        Return all (outgoing) edges incident to vertex v in the graph.
+        If graph is directed, optional parameter used to request incoming edges.
+        """
+        adj = self._outgoing if outgoing else self._incoming
+    
+    def insert_vertex(self, x=None):
+        """
+        Insert and return a new Vertex with element x.
+        """
+    
+    def insert_edge(self, u, v, x=None):
+        """
+        Insert and return a new Edge from u to v with auxiliary element x.
+        """
+
     
 
         
