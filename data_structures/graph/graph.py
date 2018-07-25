@@ -9,16 +9,15 @@ class Graph:
         """
         Create an empty graph (undirected, by default).
         """
-    
-    self._outgoing = {}
-    self._incoming = {} if directed else self._outgoing
+        self._outgoing = {}
+        self._incoming = {} if directed else self._outgoing
 
     def is_directed(self):
         """
         Return True if this is a directed graph; False if undirected.
         Property is based on the original declaration of the graph, not its contents.
         """
-        return self._incoming in not self._outgoing
+        return self._incoming is not self._outgoing
     
     def vertex_count(self):
         """
@@ -36,7 +35,7 @@ class Graph:
         """
         Return the number of edges in the graph.
         """
-        total = sum(len(self. outgoing[v]) for v in self._outgoing)
+        total = sum(len(self._outgoing[v]) for v in self._outgoing)
         return total if self.is_directed else total//2
         
     def edges(self):
@@ -45,7 +44,7 @@ class Graph:
         """
         result = set()
         for secondary_map in self._outgoing.values():
-            result.append(secondary_map.values())
+            result.add(secondary_map.values())
         return result
     
     def get_edge(self, u, v):
