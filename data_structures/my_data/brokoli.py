@@ -6,6 +6,8 @@ class Node():
         """
         init function for node
         """
+        if not isinstance(val, int):
+            raise TypeError
         self._val = val
         self._buckets = {}
 
@@ -21,10 +23,12 @@ class Node():
         """
         return str(self._val)
     
-    def buckers(self):
+    def buckets(self):
         """
         print nodes buckets
         """
+        if len(self._buckets) == 0:
+            return []
         touples = []
         for key, bucket in self._buckets.items():
             touples.append((key, bucket))
@@ -34,17 +38,23 @@ class Brokoli:
     """
     create brokoli class
     """
-    def __init__(self):
+    def __init__(self, iter=None):
         """
         init function for brokoli class
         """
         self._root = None
     
+        if iter is not None:
+            for item in iter:
+                self.insert(item)
+    
     def __repr__(self):
         """
         repr function for tree
         """
-        return self._root            
+        if self._root is None:
+            return None
+        return str(self._root._val)        
     
     def __str__(self):
         """
@@ -53,28 +63,24 @@ class Brokoli:
         from q import Queue
         st = ""
         if self._root is None:
-            return False
+            return ""
         st += str(self._root._val) + " "
         qu = Queue()
         for item in self._root._buckets.keys():
-            # print(self.root.buckets.keys())
             qu.enqueue(self._root._buckets[item])
         top = qu.dequeue()
         while top:
-            print(top)
             st += str(top._val) + " "
             if len(top._buckets)>0:
                 for item in top._buckets.keys():
                     qu.enqueue(top._buckets[item])
             top = qu.dequeue()
-        return st
+        return st.strip()
     
     def insert(self, val):
         """
         insert new element in brokoli
         """
-        if self._root is None:
-            self._root = Node(val)
         def _insert(node, val):
             """
             helper function to insert value
@@ -87,8 +93,10 @@ class Brokoli:
                 _insert(node._buckets[bucket], val)
             else:
                 node._buckets[bucket] = Node(val)
-        if not val:
+        if type(val) is not int:
             return False
+        if self._root is None:
+            self._root = Node(val)
         else:
             _insert(self._root, val)
     
