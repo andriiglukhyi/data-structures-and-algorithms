@@ -50,4 +50,4 @@ class Queue:
         temp = self.front
         self.front = temp.next
         self._len -= 1
-        return temp
+        return temp.val
