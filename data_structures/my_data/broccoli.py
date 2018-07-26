@@ -1,6 +1,8 @@
+from q import Queue
+
 class Node():
     """
-    create node class for my Brokoli function
+    create node class for my Broccoli function
     """
     def __init__(self, val):
         """
@@ -10,16 +12,17 @@ class Node():
             raise TypeError
         self._val = val
         self._buckets = {}
+        self._next = None
 
     def __repr__(self):
         """
-        repr function for brokoli
+        repr function for Broccoli
         """
         return str(self._val)
     
     def __str__(self):
         """
-        strig repr for brokoli
+        strig repr for Broccoli
         """
         return str(self._val)
     
@@ -34,13 +37,13 @@ class Node():
             touples.append((key, bucket))
         return touples
 
-class Brokoli:
+class Broccoli:
     """
-    create brokoli class
+    create Broccoli class
     """
     def __init__(self, iter=None):
         """
-        init function for brokoli class
+        init function for Broccoli class
         """
         self._root = None
     
@@ -60,7 +63,6 @@ class Brokoli:
         """
         string represenation for tree 
         """
-        from q import Queue
         st = ""
         if self._root is None:
             return ""
@@ -79,7 +81,7 @@ class Brokoli:
     
     def insert(self, val):
         """
-        insert new element in brokoli
+        insert new element in Broccoli
         """
         def _insert(node, val):
             """
@@ -107,9 +109,9 @@ class Brokoli:
         def _walk(node=None):
             if node is None:
                 return
-            action(node.val)
-            node_buckets = list(node.buckets.values())
-            if len(node.buckets) > 0:
+            action(node._val)
+            node_buckets = list(node._buckets.values())
+            if len(node_buckets) > 0:
                 for node in node_buckets:
                     _walk(node)
         if self._root is None:
@@ -124,38 +126,49 @@ class Brokoli:
         def _walk(node=None):
             if node is None:
                 return
-            node_buckets = list(node.buckets.values())
-            if len(node.buckets) > 0:
+            node_buckets = list(node._buckets.values())
+            if len(node_buckets) > 0:
                 for node in node_buckets:
                     _walk(node)
-            action(node.val)
+            action(node._val)
         if self._root is None:
             return False
         else:
-            _walk(self._root)
+            _walk(self._root) 
 
-    # def find(self, val):
-    #     """
-    #     check if exiting value in brokoli
-    #     """
-    #     def _chek(node.val, val):
-    #         """
-    #         check if this is curent value
-    #         """
-    #         if node.val == val:
-    #             return True
-    #         return 
-    #     # use order traversal to traverse brokoli and find value 
-    #     self.pre_order(_check)
+    def find(self, val):
+        """
+        check if exiting value in Broccoli
+        """
+        if self._root is None:
+            return False
+        target = val
+        found = False
+        def _check(number):
+            nonlocal target, found
+            if number == target:
+                found = True
+        self.bfs(_check)
+        if found:
+            print('YES')
+            return True
+        print("NO")
+        return  False
         
-
-
-    
-data = sorted([4,5,7,5,1,0,8,45,6,3])
-nw = Brokoli()
-
-for item in data:
-    nw.insert(item)
-
-print(str(nw))
-     
+    def bfs(self, action):
+        """
+        bfs with queue
+        """
+        if self._root is None:
+            return 
+        qu = Queue()
+        action(self._root._val) 
+        for item in self._root._buckets.keys():
+            qu.enqueue(self._root._buckets[item])
+        top = qu.dequeue()
+        while top:
+            action(top._val)
+            if len(top._buckets)>0:
+                for item in top._buckets.keys():
+                    qu.enqueue(top._buckets[item])
+            top = qu.dequeue()
