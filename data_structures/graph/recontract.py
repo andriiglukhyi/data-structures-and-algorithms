@@ -5,7 +5,7 @@ def contruct_path(u, v, discovered):
         # we build list from v to u and then reverse it at the end
         path.append(v)
         walk = v
-        while walk in not u:
+        while walk is not u:
             # find edge leading to walk
             e = discovered[walk]
             parent = e.opposite(walk)
