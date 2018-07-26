@@ -6,15 +6,30 @@ class Node():
         """
         init function for node
         """
-        self.val = val
-        self.buckets = {}
+        self._val = val
+        self._buckets = {}
+
     def __repr__(self):
-        """repr function for brokoli"""
-        return str(self.val)
+        """
+        repr function for brokoli
+        """
+        return str(self._val)
     
     def __str__(self):
-        """strig repr for brokoli"""
-        return str(self.val)
+        """
+        strig repr for brokoli
+        """
+        return str(self._val)
+    
+    def buckers(self):
+        """
+        print nodes buckets
+        """
+        touples = []
+        for key, bucket in self._buckets.items():
+            touples.append((key, bucket))
+        return touples
+
 class Brokoli:
     """
     create brokoli class
@@ -23,15 +38,13 @@ class Brokoli:
         """
         init function for brokoli class
         """
-        self.root = None
+        self._root = None
     
     def __repr__(self):
         """
         repr function for tree
         """
-        pass
-
-            
+        return self._root            
     
     def __str__(self):
         """
@@ -39,19 +52,20 @@ class Brokoli:
         """
         from q import Queue
         st = ""
-        if self.root is None:
+        if self._root is None:
             return False
-        st += str(self.root.val) + " "
+        st += str(self._root._val) + " "
         qu = Queue()
-        for item in self.root.buckets.keys():
-            print(self.root.buckets.keys())
-            qu.enqueue(self.root.buckets[item])
+        for item in self._root._buckets.keys():
+            # print(self.root.buckets.keys())
+            qu.enqueue(self._root._buckets[item])
         top = qu.dequeue()
         while top:
-            st += str(top.val) + " "
-            if len(top.val.buckets)>0:
-                for item in top.val.buckets.keys():
-                    qu.enqueue(top.val.buckets[item])
+            print(top)
+            st += str(top._val) + " "
+            if len(top._buckets)>0:
+                for item in top._buckets.keys():
+                    qu.enqueue(top._buckets[item])
             top = qu.dequeue()
         return st
     
@@ -59,22 +73,24 @@ class Brokoli:
         """
         insert new element in brokoli
         """
+        if self._root is None:
+            self._root = Node(val)
         def _insert(node, val):
             """
             helper function to insert value
-            """
-            
-        if self.root is None:
-            self.root = Node(val)
-        else:
+            """            
             if val == 0:
                 bucket = 0
             else: 
-                bucket = self.root.val % val
-            if bucket in self.root.buckets:
-                _insert(self.root.buckets[bucket], val)
+                bucket = node._val % val
+            if bucket in node._buckets:
+                _insert(node._buckets[bucket], val)
             else:
-                self.root.buckets[bucket] = Node(val)
+                node._buckets[bucket] = Node(val)
+        if not val:
+            return False
+        else:
+            _insert(self._root, val)
     
     def pre_order(self, action=None):
         """
@@ -83,15 +99,15 @@ class Brokoli:
         def _walk(node=None):
             if node is None:
                 return
-            operation(node.val)
+            action(node.val)
             node_buckets = list(node.buckets.values())
             if len(node.buckets) > 0:
                 for node in node_buckets:
                     _walk(node)
-        if self.root is None:
+        if self._root is None:
             return False
         else:
-            _walk(self.root) 
+            _walk(self._root) 
     
     def post_order(self, action=None):
         """
@@ -104,11 +120,11 @@ class Brokoli:
             if len(node.buckets) > 0:
                 for node in node_buckets:
                     _walk(node)
-            operation(node.val)
-        if self.root is None:
+            action(node.val)
+        if self._root is None:
             return False
         else:
-            _walk(self.root)
+            _walk(self._root)
 
     # def find(self, val):
     #     """
@@ -127,10 +143,11 @@ class Brokoli:
 
 
     
-data = [4,5,7,5,1,0,8,45,6,3]
+data = sorted([4,5,7,5,1,0,8,45,6,3])
 nw = Brokoli()
 
 for item in data:
     nw.insert(item)
-    
+
+print(str(nw))
      
