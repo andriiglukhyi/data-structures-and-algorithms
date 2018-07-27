@@ -52,7 +52,7 @@ class Graph:
         Return the edge from u to v, or None if not adjacent.
         """
         if u in self._outgoing:
-            return self._outgoing[v].get(v)
+            return self._outgoing[u].get(v)
         return False
     
     def degree(self, v, outgoing=True):
@@ -93,8 +93,3 @@ class Graph:
         e = Edge(u, v, x)
         self._incoming[u][v] = e
         self._outgoing[u][v] = e
-        
-    
-
-        
-
